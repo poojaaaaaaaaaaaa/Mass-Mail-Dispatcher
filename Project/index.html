@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>mass mail dispatcher</title>
+ 
+  <link rel="stylesheet" href="css.css">
+  <link href="https://fonts.google.com/specimen/Montserrat" rel="stylesheet" type="text/css" />
+  <script src="indexx.js"></script>
+
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("l36bVtHciNNJy3m4o");
+   })();
+</script>
+</head>
+<body>
+  
+  <i><marquee id="heading" direction="right">Mass Mail Dispatcher</marquee></i>
+  <hr style="color: black;">
+  <form method="post">
+    <label for="sender">From :</label>
+    <input type="email" id="sender" name="sender" required>
+
+    <br><br><br>
+
+    <label for="subject" style="margin-top: -2em;z-index: 22;position: absolute;">Subject:</label>
+    <textarea id="subject" name="subject" required></textarea>
+
+    <br><br><br><br>
+
+    <label for="csvFile">CSV File:</label>
+    <input type="file" id="csvFile" name="csvFile" onchange="validateEmails()" accept=".csv" required>
+
+    <br><br>
+
+    <label for="message">ENTER YOUR MESSAGE HERE:</label>
+    <textarea id="message" name="message" style="color: black;"></textarea>
+
+    <br><br>
+
+    <input type="button" value="Send Email" style="font-weight: bold;" onclick="sendEmails()">
+
+    <br>
+
+    
+  </form>
+  <div style="display:flex">
+    <table align="center" width="75%">
+      <tr>
+        <td>
+      <div id="validEmails">
+        <p style="color: black;">Valid Emails: <span id="validEmailCount"></span></p>
+        <hr>
+      <div id="validEmailsList" style="height: 150px; overflow: auto; color: black;">
+      </td>
+      </div>
+    </div>
+    <td>
+    <div id="invalidEmails">
+    <p style="color: black;">Invalid Emails: <span id="invalidEmailCount"></span></p>
+    <hr>
+      <div id="invalidEmailsList" style="height: 150px; overflow: auto; color: black;">
+       
+      </div>
+    </div>
+  </td>
+    </tr>
+  </table>
+  </div>
+
+  
+   
+
+</body>
+
+</html>
